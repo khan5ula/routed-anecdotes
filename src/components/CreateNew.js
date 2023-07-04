@@ -1,9 +1,9 @@
 import { useField } from '../hooks'
 
 const CreateNew = (props) => {
-  const content = useField('text')
-  const author = useField('text')
-  const info = useField('text')
+  const { reset: resetContent, ...content } = useField('text')
+  const { reset: resetAuthor, ...author } = useField('text')
+  const { reset: resetInfo, ...info } = useField('text')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -17,9 +17,9 @@ const CreateNew = (props) => {
 
   const handleReset = (e) => {
     e.preventDefault()
-    content.reset()
-    author.reset()
-    info.reset()
+    resetContent()
+    resetAuthor()
+    resetInfo()
   }
 
   const formStyle = {
@@ -30,26 +30,25 @@ const CreateNew = (props) => {
     <div>
       <h2>create a new anecdote</h2>
       <form onSubmit={handleSubmit} onReset={handleReset}>
-        
+
         <div style={formStyle}>
           content{' '}
-          <input {...content}/>
+          <input {...content} />
         </div>
 
         <div style={formStyle}>
           author{' '}
-          <input {...author}/>
+          <input {...author} />
         </div>
 
         <div style={formStyle}>
           url for more info{' '}
-          <input {...info}/>
+          <input {...info} />
         </div>
 
         <button type="submit">create</button> <button type="reset">reset</button>
       </form>
       <br />
-      
     </div>
   )
 }
