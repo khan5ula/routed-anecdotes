@@ -15,25 +15,41 @@ const CreateNew = (props) => {
     })
   }
 
+  const handleReset = (e) => {
+    e.preventDefault()
+    content.reset()
+    author.reset()
+    info.reset()
+  }
+
+  const formStyle = {
+    padding: '2px'
+  }
+
   return (
     <div>
       <h2>create a new anecdote</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          content
+      <form onSubmit={handleSubmit} onReset={handleReset}>
+        
+        <div style={formStyle}>
+          content{' '}
           <input {...content}/>
         </div>
-        <div>
-          author
+
+        <div style={formStyle}>
+          author{' '}
           <input {...author}/>
         </div>
-        <div>
-          url for more info
+
+        <div style={formStyle}>
+          url for more info{' '}
           <input {...info}/>
         </div>
-        <button>create</button>
+
+        <button type="submit">create</button> <button type="reset">reset</button>
       </form>
       <br />
+      
     </div>
   )
 }
