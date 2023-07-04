@@ -1,14 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Navigate,
-  useNavigate,
-  useMatch
-} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Menu = () => {
   const padding = {
